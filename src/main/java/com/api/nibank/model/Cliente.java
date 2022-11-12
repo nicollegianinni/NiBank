@@ -5,13 +5,12 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table (name = "cliente")
-
 public class Cliente {
 
     //Atributos
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idCliente;
     @NotBlank
     private String nome;
     @NotBlank
@@ -23,8 +22,10 @@ public class Cliente {
     @NotBlank
     private String endereco;
 
+
     //metodo construtor
-    public Cliente(String nome, String telefone, String cpf, String email, String endereco) {
+    public Cliente(String cpf) {
+        this.idCliente = idCliente;
         this.nome = nome;
         this.telefone = telefone;
         this.cpf = cpf;
@@ -32,7 +33,11 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    //metodo getts e setts
+    //metodo construtor sem parametro
+    public Cliente() {
+    }
+
+    //getts e setts
     public String getNome() {
         return nome;
     }
